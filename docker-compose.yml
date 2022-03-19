@@ -5,7 +5,8 @@ services:
     web:
         image: jitsi/web:latest
         restart: ${RESTART_POLICY}
-        ports: 3000
+        ports: 
+            - 80:80
         volumes:
             - ${CONFIG}/web:/config:Z
             - ${CONFIG}/web/crontabs:/var/spool/cron/crontabs:Z
@@ -263,7 +264,8 @@ services:
     jvb:
         image: jitsi/jvb:latest
         restart: ${RESTART_POLICY}
-        ports: 8080
+        ports: 
+            - 8080:8080
         volumes:
             - ${CONFIG}/jvb:/config:Z
         environment:
